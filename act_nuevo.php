@@ -1,18 +1,16 @@
 <?php
 
-include 'db.php';
+include 'conexion.php';
 
 try {
     $consulta = "INSERT INTO tareas (nombre, descripcion) VALUES (:nombre, :descripcion)";
     
-    $sql = $connect->prepare($consulta);
-
+    $sql = $conexion->prepare($consulta);
     $sql->bindParam(':nombre', $_POST['nombre'], PDO::PARAM_STR, 25);
     $sql->bindParam(':descripcion', $_POST['descripcion'], PDO::PARAM_STR, 100);
-    
     $sql->execute();
 
-    $ultimoId = $connect->lastInsertId();
+    $ultimoId = $conexion->lastInsertId();
     if ($ultimoId > 0) {
         header("Location: index.php");
     } else {
@@ -22,6 +20,5 @@ try {
     echo $th->getMessage();
     var_dump($th->getMessage());die();
 }
-
 ?>
 

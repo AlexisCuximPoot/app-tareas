@@ -9,3 +9,6 @@ CREATE TABLE `tareas` (
 	PRIMARY KEY (`id`)
 )
 COLLATE='utf8_general_ci';
+
+ALTER TABLE `tareas`
+	ADD COLUMN `activo` TINYINT(1) UNSIGNED NULL DEFAULT 1 AFTER `descripcion`;

@@ -1,10 +1,8 @@
 <?php
+    include 'conexion.php';
 
-    include 'db.php';
+    $sql = "SELECT id, nombre, descripcion FROM tareas WHERE activo = 1;";
 
-    $sql = "SELECT id, nombre, descripcion FROM tareas;";
-
-    $busqueda=$connect->query("$sql");
-    /*$datos=$busqueda->fetchAll(PDO::FETCH_ASSOC);*/
-
+    $busquedaTareas = $conexion->query($sql);
+    $tareas = $busquedaTareas->fetchAll(PDO::FETCH_ASSOC);
 ?>
