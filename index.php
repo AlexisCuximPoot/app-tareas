@@ -27,12 +27,16 @@ include 'act_busqueda.php';
                         <p><?= $tarea['descripcion'] ?></p>
                     </div>
                     <div class="acciones">
-                        <button>
-                            <i class="fa fa-edit"></i> Editar
-                        </button>
-                        <button>
-                            <i class="fa fa-times"></i> Borrar
-                        </button>
+                        <a href="editar.php?id=<?= $tarea['id'] ?>">
+                            <button>
+                                <i class="fa fa-edit"></i> Editar
+                            </button>
+                        </a>
+                        <a href="eliminar.php?id=<?= $tarea['id'] ?>">
+                            <button>
+                                <i class="fa fa-times"></i> Borrar
+                            </button>
+                        </a>
                     </div>
                 </div>
             <?php } ?>
